@@ -1,6 +1,8 @@
+import { Todo } from '@/generated/prisma'
 import prisma from '@/lib/prisma'
 import { NextResponse, NextRequest } from 'next/server'
 import * as yup from 'yup'
+
 
 interface Segment {
     params: {
@@ -8,13 +10,16 @@ interface Segment {
     }
 }
 
+const getById = async (id: string): Promise<Todo | null> => {
+    const data = await prisma.todo.findFirst({ where: { id } })
+    return data
+
+}
+
+
 export async function GET(request: Request, { params }: Segment) {
 
-    const todoById = await prisma.todo.findFirst({
-        where: {
-            id: params.id
-        }
-    })
+    const todoById = await getById(params.id)
 
     if (!todoById) {
         return NextResponse.json({
@@ -39,11 +44,7 @@ const updateSchema = yup.object({
 
 export async function PATCH(request: Request, { params }: Segment) {
 
-    const todoById = await prisma.todo.findFirst({
-        where: {
-            id: params.id
-        }
-    })
+    const todoById = await getById(params.id)
 
     if (!todoById) {
         return NextResponse.json({
