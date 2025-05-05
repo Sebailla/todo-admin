@@ -36,13 +36,13 @@ export async function GET(request: Request, { params }: Segment) {
 }
 
 
-//? Schema de validacion de PATCH
+//? Schema de validacion de PUT
 const updateSchema = yup.object({
     description: yup.string().optional(),
     complete: yup.boolean().optional().default(false),
 })
 
-export async function PATCH(request: Request, { params }: Segment) {
+export async function PUT(request: Request, { params }: Segment) {
 
     const todoById = await getById(params.id)
 
