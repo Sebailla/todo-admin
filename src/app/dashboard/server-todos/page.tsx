@@ -4,11 +4,11 @@ import prisma from "@/lib/prisma";
 import { NewTodo, TodosGrid } from "@/todos";
 
 export const metadata = {
-    title: 'To-Dos',
-    description: 'Listado de To-Dos',
+    title: 'Server Actions',
+    description: 'Server Actions de To-Dos',
 };
 
-export const RestTodosPage = async () => {
+export const ServerTodosPage = async () => {
 
     const todos = await prisma.todo.findMany({
         orderBy: {
@@ -17,14 +17,15 @@ export const RestTodosPage = async () => {
     })
 
     return (
-        <div>
+        <>
+            <span className="text-2xl text-violet-700">Server Actions</span>
             <div className="w-full px-5 mx-5 mb-10 mt-5">
-                <NewTodo/>
+                <NewTodo />
             </div>
-            
-            <TodosGrid todos={todos}/>
-        </div>
+
+            <TodosGrid todos={todos} />
+        </>
     )
 }
 
-export default RestTodosPage;
+export default ServerTodosPage;
