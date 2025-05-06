@@ -2,7 +2,6 @@
 
 import { Sidebar } from '@/components'
 import Image from 'next/image'
-import Link from 'next/link'
 import React from 'react'
 
 export default function NotFound() {
@@ -24,12 +23,12 @@ export default function NotFound() {
                             </div>
                         </div>
                         <div>
-                            <img src="https://i.ibb.co/G9DC8S0/404-2.png" />
+                            <Image src="https://i.ibb.co/G9DC8S0/404-2.png" alt=''/>
                         </div>
                     </div>
                 </div>
                 <div>
-                    <img src="https://i.ibb.co/ck1SGFJ/Group.png" />
+                    <Image src="https://i.ibb.co/ck1SGFJ/Group.png" alt=''/>
                 </div>
             </section>
         </>

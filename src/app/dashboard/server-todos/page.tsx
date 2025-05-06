@@ -8,7 +8,7 @@ export const metadata = {
     description: 'Server Actions de To-Dos',
 };
 
-export const ServerTodosPage = async () => {
+const ServerTodosPage = async () => {
 
     const todos = await prisma.todo.findMany({
         orderBy: {

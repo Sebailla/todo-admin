@@ -1,6 +1,6 @@
 import { Todo } from '@/generated/prisma'
 import prisma from '@/lib/prisma'
-import { NextResponse, NextRequest } from 'next/server'
+import { NextResponse} from 'next/server'
 import * as yup from 'yup'
 
 
@@ -73,7 +73,7 @@ export async function PUT(request: Request, { params }: Segment) {
             updateTodo
         })
 
-    } catch (error) {
+    } catch (error:any) {
         return NextResponse.json({
             status: 'error',
             error: error.errors

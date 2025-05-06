@@ -28,6 +28,7 @@ export const TodoItemExperimental = ({ todo, toggleTodo }: Props) => {
             await toggleTodo(todoOptimistic.id, !todoOptimistic.complete)
         } catch (error) {
             toggleOptimistic(!todoOptimistic.complete)
+            throw error
         }
         
     }

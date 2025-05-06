@@ -1,5 +1,5 @@
 import prisma from '@/lib/prisma'
-import { NextResponse, NextRequest } from 'next/server'
+import { NextResponse} from 'next/server'
 import * as yup from 'yup'
 
 export async function GET(request: Request) {
@@ -59,7 +59,7 @@ export async function POST(request: Request) {
             newTodo
         })
 
-    } catch (error) {
+    } catch (error: any) {
         return NextResponse.json({
             status: 'error',
             msg: error.message
@@ -85,7 +85,7 @@ export async function DELETE(request: Request) {
             delTodos
         })
 
-    } catch (error) {
+    } catch (error: any) {
         return NextResponse.json({
             status: 'error',
             msg: error.message
