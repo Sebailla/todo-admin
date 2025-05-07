@@ -1,5 +1,5 @@
 
-import { CiBookmarkCheck, CiCalendarDate, CiLogout, CiViewList } from 'react-icons/ci'
+import { CiBookmarkCheck, CiCalendarDate, CiCoffeeCup, CiLogout, CiShoppingBasket, CiShoppingCart, CiViewList } from 'react-icons/ci'
 import Link from 'next/link'
 import Image from 'next/image'
 import { SidebarItem } from './SidebarItem'
@@ -19,6 +19,21 @@ const menuItem = [
     icon: <CiViewList size={30} />,
     href: '/dashboard/server-todos',
     title: 'Server Actions'
+  },
+  {
+    icon: <CiCoffeeCup size={30} />,
+    href: '/dashboard/cookies',
+    title: 'Cookies'
+  },
+  {
+    icon: <CiShoppingBasket size={30} />,
+    href: '/dashboard/products',
+    title: 'Products'
+  },
+  {
+    icon: <CiShoppingCart size={30} />,
+    href: '/dashboard/cart',
+    title: 'Cart'
   },
 ]
 

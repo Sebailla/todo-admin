@@ -4,8 +4,12 @@ const nextConfig = {
         remotePatterns: [
             {
                 protocol: 'https',
-                hostname: 'tailus.io',
-            }
+                hostname: 'tailus.io'
+            },
+            {
+                protocol: 'https',
+                hostname: 'i.ibb.co'
+            },
         ]
     }
 };
