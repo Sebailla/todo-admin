@@ -4,7 +4,7 @@ import { FormEvent, useState } from "react";
 import { IoTrashOutline } from "react-icons/io5"
 import * as todosApi from '../helpers/todos'
 import { useRouter } from "next/navigation";
-import {createTodo, deleteCompleted} from '../actions/actions'
+
 
 export const NewTodo = () => {
 
@@ -24,10 +24,10 @@ export const NewTodo = () => {
     router.refresh();
   }
   
-  /* const deleteCompleted = async() => {
-    //await todosApi.deleteCompleteTodo();
-    //router.refresh();
-  } */
+  const deleteCompleted = async() => {
+    await todosApi.deleteCompleteTodo();
+    router.refresh();
+  } 
 
 
 

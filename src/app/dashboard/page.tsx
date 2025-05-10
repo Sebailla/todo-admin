@@ -30,9 +30,7 @@ const DashboardPage = async () => {
           <span><b>ID:</b> {session.user.id}</span>
           <span><b>Role:</b> {session.user.roles}</span>
         </div>
-        <div>
-          {JSON.stringify(session)}
-        </div>
+        
       </WidgetItem>
 
     </div>
