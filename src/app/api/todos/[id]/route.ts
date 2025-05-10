@@ -1,6 +1,7 @@
+import { getUserSessionServer } from '@/auth/actions/Auth-Actions'
 import { Todo } from '@/generated/prisma'
 import prisma from '@/lib/prisma'
-import { NextResponse} from 'next/server'
+import { NextResponse } from 'next/server'
 import * as yup from 'yup'
 
 
@@ -11,9 +12,20 @@ interface Segment {
 }
 
 const getById = async (id: string): Promise<Todo | null> => {
-    const data = await prisma.todo.findFirst({ where: { id } })
-    return data
 
+    const user = await getUserSessionServer()
+
+    if (!user) {
+        return null
+    }
+
+    const data = await prisma.todo.findFirst({ where: { id }})
+
+    if (data?.userId !== user.id) {
+        return null
+    }
+
+    return data
 }
 
 
@@ -73,7 +85,7 @@ export async function PUT(request: Request, { params }: Segment) {
             updateTodo
         })
 
-    } catch (error:any) {
+    } catch (error: any) {
         return NextResponse.json({
             status: 'error',
             error: error.errors
